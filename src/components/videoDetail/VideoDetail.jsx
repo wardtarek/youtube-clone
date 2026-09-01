@@ -103,6 +103,7 @@ const VideoDetail = () => {
                           href={item}
                           key={index}
                           target="_blank"
+                          rel="noreferrer"
                           style={{ color: "#065fd4" }}
                         >
                           {item}
@@ -119,6 +120,7 @@ const VideoDetail = () => {
                       .map((item, index) =>
                         item.includes("http") ? (
                           <a
+                            rel="noreferrer"
                             href={item}
                             key={index}
                             target="_blank"

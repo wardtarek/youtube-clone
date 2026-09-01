@@ -45,7 +45,7 @@ const Feed = () => {
           mb={2}
           sx={{ color: `${darkModeValue ? "#fff" : "#000"}` }}
         >
-          {selectedCategory == "Home" ? "New" : selectedCategory}{" "}
+          {selectedCategory === "Home" ? "New" : selectedCategory}{" "}
           <span style={{ color: "#F31503" }}>videos</span>
         </Typography>
         <Videos videos={videos} />
