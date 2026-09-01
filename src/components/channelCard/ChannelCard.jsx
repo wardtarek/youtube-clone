@@ -1,10 +1,13 @@
 import { Box, CardContent, CardMedia, Typography } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { demoProfilePicture } from "../../utils/constants";
 import CheckCircle from "@mui/icons-material/CheckCircle";
+import { darkContext } from "../../context/DarkModeContext";
 
 const ChannelCard = ({ channelDetail, marginTop }) => {
+  const { darkModeValue } = useContext(darkContext);
+
   return (
     <Box
       sx={{
@@ -26,7 +29,7 @@ const ChannelCard = ({ channelDetail, marginTop }) => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            color: "#fff",
+            color: `${darkModeValue ? "#fff" : "#000"}`,
           }}
         >
           <CardMedia
@@ -45,7 +48,7 @@ const ChannelCard = ({ channelDetail, marginTop }) => {
           />
           <Typography variant="h6">
             {channelDetail?.snippet?.title}
-            <CheckCircle sx={{ fontSize: 14, ml: 1, color:'gray' }} />
+            <CheckCircle sx={{ fontSize: 14, ml: 1, color: "gray" }} />
           </Typography>
           <Typography>
             {channelDetail?.statistics?.subscriberCount && (

@@ -1,13 +1,16 @@
 import { Box, Stack, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SideBar from "../sideBar/SideBar";
 import Videos from "../videos/Videos";
 import { fetchFromAPI } from "../../utils/fetchFromAPI";
 import CopyrightIcon from "@mui/icons-material/Copyright";
+import { darkContext } from "../../context/DarkModeContext";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("Home");
   const [videos, setVideos] = useState([]);
+  const { darkModeValue } = useContext(darkContext);
+
   useEffect(() => {
     fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) => {
       setVideos(data.items);
@@ -19,7 +22,7 @@ const Feed = () => {
       <Box
         sx={{
           height: { sx: "auto", md: "92vh" },
-          borderRight: "1px solid #3d3d3d",
+          borderRight: "1px solid #6d6d6d",
           px: { sx: 0, md: 2 },
         }}
       >
@@ -35,12 +38,12 @@ const Feed = () => {
           Copyright 2022 JSM Media <CopyrightIcon sx={{ fontSize: 14 }} />
         </Typography>
       </Box>
-      <Box p={2} sx={{ height: "90vh", flex: 2, overflowY: "auto" }}>
+      <Box className="content" p={2} sx={{ height: "90vh", flex: 2, overflowY: "auto" }}>
         <Typography
           variant="h4"
           fontWeight="bold"
           mb={2}
-          sx={{ color: "#fff" }}
+          sx={{ color: `${darkModeValue ? "#fff" : "#000"}` }}
         >
           {selectedCategory == "Home" ? "New" : selectedCategory}{" "}
           <span style={{ color: "#F31503" }}>videos</span>

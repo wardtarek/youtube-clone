@@ -18,10 +18,11 @@ const SearchBar = () => {
       onSubmit={handleSubmit}
       sx={{
         borderRadius: 20,
-        border: "1px solid #e3e3e3",
+        border: "2px solid #e3e3e3",
         pl: 2,
         boxShadow: "none",
-        mr: { sm: 5 },
+        display:"flex",
+        alignItems:"center"
       }}
     >
       <InputBase
@@ -33,7 +34,7 @@ const SearchBar = () => {
         }}
         style={{padding:'0px'}}
       ></InputBase>
-      <IconButton type="submit" sx={{ p: "10px", color: "red" }}>
+      <IconButton type="submit" sx={{ px: "10px", color: "red" }}>
         <SearchIcon />
       </IconButton>
     </Paper>

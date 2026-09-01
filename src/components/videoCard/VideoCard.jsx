@@ -1,5 +1,5 @@
 import { Card, CardContent, CardMedia, Typography } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   demoChannelTitle,
@@ -8,6 +8,7 @@ import {
   demoVideoUrl,
 } from "../../utils/constants";
 import CheckCircle from "@mui/icons-material/CheckCircle";
+import { darkContext } from "../../context/DarkModeContext";
 
 const VideoCard = ({
   video: {
@@ -15,12 +16,13 @@ const VideoCard = ({
     snippet,
   },
 }) => {
+  const { darkModeValue } = useContext(darkContext);
   return (
     <Card
       sx={{
-        width: { xs: "100%", sm: "358px", md: "320px" },
+        width: { xs: "300px", sm: "358px", md: "320px" },
         boxShadow: "none",
-        borderRadius: 0,
+        borderRadius: 3,
       }}
     >
       <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
@@ -30,9 +32,18 @@ const VideoCard = ({
           sx={{ width: { xs: "100%", sm: "358px", md: "320px" }, height: 180 }}
         />
       </Link>
-      <CardContent sx={{ backgroundColor: "#1e1e1e", height: "106px" }}>
+      <CardContent
+        sx={{
+          backgroundColor: `${darkModeValue ? "#1e1e1e" : "#F0F0F0"}`,
+          height: "106px",
+        }}
+      >
         <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
-          <Typography variant="subtitle1" fontWeight="bold" color="#fff">
+          <Typography
+            variant="subtitle1"
+            fontWeight="bold"
+            sx={{ color: `${darkModeValue ? "#fff" : "#000"}` }}
+          >
             {snippet?.title.slice(0, 60) || demoVideoTitle.slice(0, 60)}
           </Typography>
         </Link>

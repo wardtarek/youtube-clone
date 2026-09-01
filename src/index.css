@@ -12,13 +12,19 @@ a {
 
 ::-webkit-scrollbar {
   width: 0px;
-  height: 5px;
+  height: 4px;
 }
-
+.content::-webkit-scrollbar {
+  width: 4px;
+}
 ::-webkit-scrollbar-thumb {
   background-color: rgb(114, 113, 113);
   border-radius: 10px;
   height: 200px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -34,9 +40,28 @@ a {
   color: white !important;
 }
 
+.logo {
+  height: 45px;
+  margin-right: 5px;
+}
+
+.player-wrapper {
+  position: relative;
+  height: 77vh;
+  width: 100%;
+}
 .react-player {
-  height: 77vh !important;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100% !important;
+  height: 100% !important;
+  border-radius: 12px;
+  overflow: hidden;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
 }
 
 .search-bar {
@@ -94,7 +119,7 @@ a {
     -moz-transform: rotate(1turn);
     -ms-transform: rotate(1turn);
     -o-transform: rotate(1turn);
-}
+  }
 }
 @media screen and (max-width: 900px) {
   .category-btn {
@@ -106,15 +131,14 @@ a {
 }
 
 @media screen and (max-width: 600px) {
-  .scroll-horizontal {
-    overflow: auto !important;
+  .logo {
+    height: 40px;
   }
-
-  .react-player {
-    height: 45vh !important;
+  .player-wrapper {
+    height: 45vh;
   }
   .search-bar {
-    width: 200px;
+    width: 160px;
   }
   h4 {
     font-size: 30px !important;

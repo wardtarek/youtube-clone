@@ -11,7 +11,7 @@ const Videos = ({ videos, direction }) => {
       justifyContent="center"
       gap={2}
     >
-      {videos.map(
+      {videos?.map(
         (item, idx) =>
           (item?.id?.videoId || item?.id?.channelId) && (
             <Box key={idx}>
